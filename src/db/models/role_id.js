@@ -1,10 +1,18 @@
-'use strict';
+'use strict'
 module.exports = (sequelize, DataTypes) => {
-  const role_Id = sequelize.define('role_Id', {
-    name: DataTypes.STRING
-  }, {});
-  role_Id.associate = function(models) {
-    // associations can be defined here
-  };
-  return role_Id;
-};
+  const role_id = sequelize.define(
+    'role_id',
+    {
+      name: DataTypes.STRING,
+    },
+    {}
+  )
+  role_id.associate = function (models) {
+    role_id.belongsToMany(models.user, {
+      through: 'user_roles',
+      foreignKey: 'roleId',
+      otherKey: 'userId',
+    })
+  }
+  return role_id
+}

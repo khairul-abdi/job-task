@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     'user',
     {
       username: DataTypes.STRING,
+      email: DataTypes.STRING,
       first_name: DataTypes.STRING,
       last_name: DataTypes.STRING,
       password: DataTypes.STRING,
@@ -13,8 +14,14 @@ module.exports = (sequelize, DataTypes) => {
   )
   user.associate = function (models) {
     // user hasMany task
-    user.hasMany(models.task, {
+    user.hasMany(models.ztask, {
       foreignKey: 'userId',
+    })
+
+    user.belongsToMany(models.role_id, {
+      through: 'user_roles',
+      foreignKey: 'userId',
+      otherKey: 'roleId',
     })
   }
   return user

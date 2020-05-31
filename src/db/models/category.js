@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   )
   category.associate = function (models) {
     // user hasMany task
-    category.hasMany(models.task, {
+    category.hasMany(models.ztask, {
       foreignKey: 'categoryId',
     })
   }

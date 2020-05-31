@@ -1,7 +1,7 @@
 'use strict'
 module.exports = (sequelize, DataTypes) => {
   const task = sequelize.define(
-    'task',
+    'ztask',
     {
       title: DataTypes.STRING,
       subtitle: DataTypes.STRING,
