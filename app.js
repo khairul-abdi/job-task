@@ -19,7 +19,6 @@ app.use(cors(corsOptions))
 app.use(bodyParser.json())
 
 const indexRouter = require('./routes/index')
-const indexRouterUser = require('./routes/user.routes')
 const usersRouter = require('./routes/users')
 
 // view engine setup
@@ -61,6 +60,8 @@ app.use('/users', usersRouter)
 //routes
 require('./routes/auth.routes')(app)
 require('./routes/user.routes')(app)
+require('./routes/category.routes')(app)
+// require('./routes/task.routes')(app)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

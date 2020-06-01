@@ -10,16 +10,14 @@ module.exports = function (app) {
     next()
   })
 
-  app.get('/api/test/all', controller.allAccess)
-
-  app.get(
-    '/api/test/employee',
+  app.post(
+    '/api/task/create',
     [authJwt.verifyToken, authJwt.isEmployee],
-    controller.employeeBoard
+    controller.taskBoard
   )
 
-  app.get(
-    '/api/test/manager',
+  app.post(
+    '/api/task/create',
     [authJwt.verifyToken, authJwt.isManager],
     controller.ManagerBoard
   )

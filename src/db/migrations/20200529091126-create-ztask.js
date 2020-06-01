@@ -17,11 +17,17 @@ module.exports = {
       description: {
         type: Sequelize.STRING,
       },
+      timeEstimated: {
+        type: Sequelize.STRING,
+      },
       dateStart: {
         type: Sequelize.DATEONLY,
       },
       dateEnd: {
         type: Sequelize.DATEONLY,
+      },
+      isCompleted: {
+        type: Sequelize.STRING,
       },
       isDeleted: {
         type: Sequelize.BOOLEAN,
